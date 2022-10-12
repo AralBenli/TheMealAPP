@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FoodApplication</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="category_name">string/category_name</string>
+    <string name="category_overview">category_overview</string>
+    <string name="world_kitchen">World Kitchen</string>
+    <string name="image">image</string>
+    <string name="food_categories">Food Categories</string>
+</resources>

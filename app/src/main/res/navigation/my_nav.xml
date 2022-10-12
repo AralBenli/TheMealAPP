@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/foodCategoriesFragment">
+
+    <fragment
+        android:id="@+id/foodCategoriesFragment"
+        android:name="com.aralb.foodapplication.ui.categories.fragment.FoodCategoriesFragment"
+        android:label="FoodCategoriesFragment" >
+        <action
+            android:id="@+id/action_foodCategoriesFragment_to_foodSearchFragment"
+            app:destination="@id/foodSearchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodSearchFragment"
+        android:name="com.aralb.foodapplication.ui.search.FoodSearchFragment"
+        android:label="fragment_food_search"
+        tools:layout="@layout/fragment_food_search" />
+</navigation>
