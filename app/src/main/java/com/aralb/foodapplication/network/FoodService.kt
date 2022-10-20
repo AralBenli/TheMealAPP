@@ -1,26 +1,26 @@
 package com.aralb.foodapplication.network
 
-import com.aralb.foodapplication.model.food_categories_detail_response.FoodCategoriesDetailResponse
+import com.aralb.foodapplication.model.detail_response.DetailResponse
+import com.aralb.foodapplication.model.detail_response.Meal
 import com.aralb.foodapplication.model.food_category_response.FoodCategoryResponse
 import com.aralb.foodapplication.model.food_detail_response.FoodDetailResponse
 import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface FoodService {
 
     @GET("categories.php")
     suspend fun getFoodCategories(): FoodCategoryResponse
 
-    @GET("filter.php/{c}")
+
+    @GET("filter.php")
     suspend fun getFoodCategoryDetails(
-        @Path("c") c: String
-    ): FoodCategoriesDetailResponse
-
-
-    @GET("lookup.php/{i}")
-    suspend fun getFooDdDetails(
-        @Path("i") i: Int
+        @Query("c") category: String
     ): FoodDetailResponse
 
 
+    @GET("lookup.php")
+    suspend fun getFoodDetails(@Query("i") id: String): DetailResponse
+
 }
+

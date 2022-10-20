@@ -10,12 +10,29 @@
         android:name="com.aralb.foodapplication.ui.categories.fragment.FoodCategoriesFragment"
         android:label="FoodCategoriesFragment" >
         <action
-            android:id="@+id/action_foodCategoriesFragment_to_foodSearchFragment"
+            android:id="@+id/mainToSearch"
             app:destination="@id/foodSearchFragment" />
+        <action
+            android:id="@+id/mainToCategory"
+            app:destination="@id/category_detail" />
     </fragment>
     <fragment
         android:id="@+id/foodSearchFragment"
-        android:name="com.aralb.foodapplication.ui.search.FoodSearchFragment"
+        android:name="com.aralb.foodapplication.ui.search.fragment.FoodSearchFragment"
         android:label="fragment_food_search"
         tools:layout="@layout/fragment_food_search" />
+    <fragment
+        android:id="@+id/category_detail"
+        android:name="com.aralb.foodapplication.ui.categoryDetail.fragment.FoodCategoryDetailFragment"
+        android:label="fragment_category_detail"
+        tools:layout="@layout/fragment_category_detail" >
+        <action
+            android:id="@+id/CategoryToDetail"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.aralb.foodapplication.ui.detail.fragment.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
 </navigation>

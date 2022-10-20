@@ -16,7 +16,7 @@
     
     <style name="splashScreenTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/gerald_g_fast_food_menu_samples_ff_menu_1</item>
-        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:statusBarColor">@color/black</item>
     </style>
 
 </resources>
