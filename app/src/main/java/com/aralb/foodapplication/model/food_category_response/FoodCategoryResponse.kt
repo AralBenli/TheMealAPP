@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class FoodCategoryResponse(
+    data class FoodCategoryResponse(
     @SerializedName(value = "categories")
     val categories: List<Category>
 ) : Parcelable

@@ -1,4 +1,4 @@
-package com.aralb.foodapplication.ui.search
+package com.aralb.foodapplication.ui.search.fragment
 
 import com.aralb.foodapplication.databinding.FragmentFoodSearchBinding
 import com.aralb.foodapplication.ui.base.BaseFragment
