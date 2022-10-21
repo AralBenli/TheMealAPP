@@ -20,7 +20,11 @@
         android:id="@+id/foodSearchFragment"
         android:name="com.aralb.foodapplication.ui.search.fragment.FoodSearchFragment"
         android:label="fragment_food_search"
-        tools:layout="@layout/fragment_food_search" />
+        tools:layout="@layout/fragment_food_search" >
+        <action
+            android:id="@+id/searchToDetail"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/category_detail"
         android:name="com.aralb.foodapplication.ui.categoryDetail.fragment.FoodCategoryDetailFragment"

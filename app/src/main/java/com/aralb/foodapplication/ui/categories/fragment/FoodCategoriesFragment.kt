@@ -27,6 +27,9 @@ class FoodCategoriesFragment :
 
     override fun observer() {
 
+        binding.mainSearchView.setOnClickListener{
+            findNavController().navigate(R.id.mainToSearch)
+        }
 
         foodCategoryAdapter = FoodCategoryAdapter(
             foodCategories = arrayListOf(),
