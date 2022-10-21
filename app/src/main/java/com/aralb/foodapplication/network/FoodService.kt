@@ -1,7 +1,6 @@
 package com.aralb.foodapplication.network
 
 import com.aralb.foodapplication.model.detail_response.DetailResponse
-import com.aralb.foodapplication.model.detail_response.Meal
 import com.aralb.foodapplication.model.food_category_response.FoodCategoryResponse
 import com.aralb.foodapplication.model.food_detail_response.FoodDetailResponse
 import retrofit2.http.GET
@@ -21,6 +20,10 @@ interface FoodService {
 
     @GET("lookup.php")
     suspend fun getFoodDetails(@Query("i") id: String): DetailResponse
+
+
+    @GET("search.php")
+    suspend fun getSearch(@Query("f") f:String) :DetailResponse
 
 }
 

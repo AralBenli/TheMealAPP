@@ -1,7 +1,6 @@
 package com.aralb.foodapplication.repository
 
 import com.aralb.foodapplication.model.detail_response.DetailResponse
-import com.aralb.foodapplication.model.detail_response.Meal
 import com.aralb.foodapplication.model.food_category_response.FoodCategoryResponse
 import com.aralb.foodapplication.model.food_detail_response.FoodDetailResponse
 import com.aralb.foodapplication.network.FoodService
@@ -43,6 +42,17 @@ class Repository @Inject constructor(private val apiService: FoodService) {
             emit(CategoryState.Success(specificDetailData))
         } catch (ex: Exception) {
             emit(CategoryState.Error(ex.message.toString()))
+        }
+    }.flowOn(Dispatchers.IO)
+
+    suspend fun getSearch(f: String): Flow<CategoryState<DetailResponse>> = flow {
+        emit(CategoryState.Loading())
+        try {
+            val searchFoodData = apiService.getSearch(f)
+            emit(CategoryState.Success(searchFoodData))
+        } catch (ex: Exception) {
+            emit(CategoryState.Error(ex.message.toString()))
+
         }
     }.flowOn(Dispatchers.IO)
 
