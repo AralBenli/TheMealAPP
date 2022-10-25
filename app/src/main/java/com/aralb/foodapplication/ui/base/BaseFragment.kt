@@ -1,6 +1,8 @@
 package com.aralb.foodapplication.ui.base
 
 import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,16 +35,17 @@ abstract class BaseFragment<VB : ViewBinding>
 
         observer()
 
-
     }
 
     open fun observer() {}
+
     fun showLoadingProgress() {
         if (!::progressDialog.isInitialized) {
             progressDialog = Dialog(requireContext())
             progressDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
             progressDialog.setContentView(R.layout.loading_progress)
-
+            progressDialog.setCancelable(false)
+            progressDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         }
         progressDialog.show()
     }

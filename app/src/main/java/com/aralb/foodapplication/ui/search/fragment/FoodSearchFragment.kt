@@ -12,6 +12,7 @@ import com.aralb.foodapplication.model.detail_response.DetailMealResponse
 import com.aralb.foodapplication.ui.base.BaseFragment
 import com.aralb.foodapplication.ui.search.adapter.SearchAdapter
 import com.aralb.foodapplication.ui.search.viewModel.FoodSearchViewModel
+import com.aralb.foodapplication.util.DetailState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -45,14 +46,22 @@ class FoodSearchFragment :
                 return false
             }
         })
-
-
         viewLifecycleOwner.lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
-                    searchViewModel.searchData.collectLatest { data ->
-                        data.searchResponse?.let {
-                            searchAdapter.update(it.detailMealResponses)
+                    searchViewModel.searchData.collectLatest { searchState ->
+                        when (searchState) {
+                            is DetailState.Error -> print(searchState.msg)
+                            is DetailState.Loading ->
+                                if (searchState.loading) {
+                                    showLoadingProgress()
+                                } else {
+                                    dismissLoadingProgress()
+                                }
+                            is DetailState.Success -> searchState.data.let {
+                                searchAdapter.update(it.detailMealResponses)
+                            }
+                            null -> {}
                         }
                     }
                 }
@@ -60,11 +69,10 @@ class FoodSearchFragment :
         }
     }
 
-
     override fun onClickedSearchToDetail(currentItem: DetailMealResponse) {
         val bundle = Bundle()
         bundle.putString("idMeal", currentItem.idMeal)
-        findNavController().navigate(R.id.searchToDetail , bundle)
+        findNavController().navigate(R.id.searchToDetail, bundle)
     }
 
 

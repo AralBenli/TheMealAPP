@@ -1,8 +1,6 @@
 package com.aralb.foodapplication.ui.categories.fragment
 
 import android.os.Bundle
-import androidx.core.view.isGone
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -14,7 +12,9 @@ import com.aralb.foodapplication.model.food_category_response.Category
 import com.aralb.foodapplication.ui.categories.adapter.FoodCategoryAdapter
 import com.aralb.foodapplication.ui.base.BaseFragment
 import com.aralb.foodapplication.ui.categories.viewModel.FoodCategoriesViewModel
+import com.aralb.foodapplication.util.FoodCategoryState
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -27,11 +27,12 @@ class FoodCategoriesFragment :
 
     override fun observer() {
 
-        binding.mainSearchView.setOnClickListener{
+        binding.mainSearchView.setOnClickListener {
             findNavController().navigate(R.id.mainToSearch)
         }
 
         foodCategoryAdapter = FoodCategoryAdapter(
+            requireContext(),
             foodCategories = arrayListOf(),
             this
         )
@@ -43,14 +44,20 @@ class FoodCategoriesFragment :
         viewLifecycleOwner.lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
-                    categoryViewModel.categoryData.collect { data ->
-                        if (data.isLoading == true) {
-                            showLoadingProgress()
-                        } else {
-                            dismissLoadingProgress()
-                        }
-                        data.foodCategoryResponse?.let {
-                            foodCategoryAdapter.update(it.categories)
+                    categoryViewModel.categoryData.collectLatest { mealState ->
+
+                        when(mealState){
+                            is FoodCategoryState.Error ->
+                                print(mealState.msg)
+                            is FoodCategoryState.Loading ->
+                                if(mealState.loading){
+                                    showLoadingProgress()
+                                }else{
+                                    dismissLoadingProgress()
+                                }
+                            is FoodCategoryState.Success ->
+                                foodCategoryAdapter.update(mealState.data.categories)
+                            else -> {}
                         }
 
                     }
@@ -65,7 +72,6 @@ class FoodCategoriesFragment :
         findNavController().navigate(R.id.mainToCategory, bundle)
     }
 
-
-}
+    }
 
 
