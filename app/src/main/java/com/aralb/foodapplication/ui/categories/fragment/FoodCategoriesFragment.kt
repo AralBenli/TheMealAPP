@@ -12,12 +12,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.aralb.foodapplication.R
+import com.aralb.foodapplication.UIState
 import com.aralb.foodapplication.databinding.FragmentCategoriesBinding
 import com.aralb.foodapplication.model.food_category_response.Category
 import com.aralb.foodapplication.ui.categories.adapter.FoodCategoryAdapter
 import com.aralb.foodapplication.ui.base.BaseFragment
 import com.aralb.foodapplication.ui.categories.viewModel.FoodCategoriesViewModel
-import com.aralb.foodapplication.util.FoodCategoryState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -69,18 +69,20 @@ class FoodCategoriesFragment :
 =======
                     categoryViewModel.categoryData.collectLatest { mealState ->
 
-                        when(mealState){
-                            is FoodCategoryState.Error ->
+                        when (mealState) {
+                            is UIState.Error ->
                                 print(mealState.msg)
-                            is FoodCategoryState.Loading ->
-                                if(mealState.loading){
+                            is UIState.Loading ->
+                                if (mealState.loading) {
                                     showLoadingProgress()
-                                }else{
+                                } else {
                                     dismissLoadingProgress()
                                 }
-                            is FoodCategoryState.Success ->
-                                foodCategoryAdapter.update(mealState.data.categories)
-                            else -> {}
+                            is UIState.Success ->
+                                mealState.data.let {
+                                    foodCategoryAdapter.update(it.categories)
+                                }
+
                         }
 >>>>>>> 14d3ed5d30dc645b49d060de44ef39e20161d7a6
 
@@ -97,10 +99,14 @@ class FoodCategoriesFragment :
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 }
 =======
     }
 >>>>>>> 14d3ed5d30dc645b49d060de44ef39e20161d7a6
+=======
+}
+>>>>>>> 3beae78a4058398eb524a4508a6c2bfbe7efa6a3
 
 

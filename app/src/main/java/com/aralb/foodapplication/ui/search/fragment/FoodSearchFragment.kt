@@ -7,15 +7,19 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.aralb.foodapplication.R
+import com.aralb.foodapplication.UIState
 import com.aralb.foodapplication.databinding.FragmentFoodSearchBinding
 import com.aralb.foodapplication.model.detail_response.DetailMealResponse
 import com.aralb.foodapplication.ui.base.BaseFragment
 import com.aralb.foodapplication.ui.search.adapter.SearchAdapter
 import com.aralb.foodapplication.ui.search.viewModel.FoodSearchViewModel
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import com.aralb.foodapplication.util.DetailState
 >>>>>>> 14d3ed5d30dc645b49d060de44ef39e20161d7a6
+=======
+>>>>>>> 3beae78a4058398eb524a4508a6c2bfbe7efa6a3
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -64,18 +68,25 @@ class FoodSearchFragment :
                 launch {
                     searchViewModel.searchData.collectLatest { searchState ->
                         when (searchState) {
-                            is DetailState.Error -> print(searchState.msg)
-                            is DetailState.Loading ->
+                            is UIState.Error -> print(searchState.msg)
+                            is UIState.Loading ->
                                 if (searchState.loading) {
                                     showLoadingProgress()
                                 } else {
                                     dismissLoadingProgress()
                                 }
+<<<<<<< HEAD
                             is DetailState.Success -> searchState.data.let {
                                 searchAdapter.update(it.detailMealResponses)
                             }
                             null -> {}
 >>>>>>> 14d3ed5d30dc645b49d060de44ef39e20161d7a6
+=======
+                            is UIState.Success ->
+                                if (searchState.data != null) {
+                                    searchAdapter.update(searchState.data.detailMealResponses)
+                                }
+>>>>>>> 3beae78a4058398eb524a4508a6c2bfbe7efa6a3
                         }
                     }
                 }

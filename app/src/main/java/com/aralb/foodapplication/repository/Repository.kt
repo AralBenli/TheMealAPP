@@ -1,6 +1,7 @@
 package com.aralb.foodapplication.repository
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.aralb.foodapplication.model.detail_response.DetailResponse
 import com.aralb.foodapplication.model.food_category_response.FoodCategoryResponse
 import com.aralb.foodapplication.model.food_detail_response.FoodDetailResponse
@@ -12,6 +13,13 @@ import com.aralb.foodapplication.util.DetailState
 import com.aralb.foodapplication.util.FoodCategoryState
 import com.aralb.foodapplication.util.FoodDetailState
 >>>>>>> 14d3ed5d30dc645b49d060de44ef39e20161d7a6
+=======
+import com.aralb.foodapplication.UIState
+import com.aralb.foodapplication.model.detail_response.DetailResponse
+import com.aralb.foodapplication.model.food_category_response.FoodCategoryResponse
+import com.aralb.foodapplication.model.food_detail_response.FoodDetailResponse
+import com.aralb.foodapplication.network.FoodService
+>>>>>>> 3beae78a4058398eb524a4508a6c2bfbe7efa6a3
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -20,6 +28,7 @@ import javax.inject.Inject
 
 class Repository @Inject constructor(private val apiService: FoodService) {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     suspend fun getFoodCategories(): Flow<CategoryState<FoodCategoryResponse>> = flow {
         emit(CategoryState.Loading())
@@ -64,51 +73,60 @@ class Repository @Inject constructor(private val apiService: FoodService) {
 =======
     suspend fun getFoodCategories(): Flow<FoodCategoryState> = flow {
         emit(FoodCategoryState.Loading(loading = true))
+=======
+    suspend fun getFoodCategories(): Flow<UIState<FoodCategoryResponse>> = flow {
+        emit(UIState.Loading(true))
+>>>>>>> 3beae78a4058398eb524a4508a6c2bfbe7efa6a3
         try {
             val categoryData = apiService.getFoodCategories()
-            emit(FoodCategoryState.Success(categoryData))
-            emit(FoodCategoryState.Loading(loading = false))
+            emit(UIState.Success(categoryData))
+            emit(UIState.Loading(loading = false))
         } catch (ex: Exception) {
-            emit(FoodCategoryState.Error(ex.message.toString()))
-            emit(FoodCategoryState.Loading(loading = false))
+            emit(UIState.Error(ex.message.toString()))
+            emit(UIState.Loading(loading = false))
         }
     }.flowOn(Dispatchers.IO)
 
-    suspend fun getFoodCategoryDetails(c: String): Flow<FoodDetailState> = flow {
-        emit(FoodDetailState.Loading(loading = true))
+    suspend fun getFoodCategoryDetails(c: String): Flow<UIState<FoodDetailResponse>> = flow {
+        emit(UIState.Loading(loading = true))
         try {
             val detailData = apiService.getFoodCategoryDetails(c)
-            emit(FoodDetailState.Success(detailData))
-            emit(FoodDetailState.Loading(loading = false))
+            emit(UIState.Success(detailData))
+            emit(UIState.Loading(loading = false))
         } catch (ex: Exception) {
-            emit(FoodDetailState.Error(ex.message.toString()))
-            emit(FoodDetailState.Loading(loading = false))
+            emit(UIState.Error(ex.message.toString()))
+            emit(UIState.Loading(loading = false))
         }
     }.flowOn(Dispatchers.IO)
 
-    suspend fun getDetails(i: String): Flow<DetailState> = flow {
-        emit(DetailState.Loading(loading = true))
+    suspend fun getDetails(i: String): Flow<UIState<DetailResponse>> = flow {
+        emit(UIState.Loading(loading = true))
         try {
             val specificDetailData = apiService.getFoodDetails(i)
-            emit(DetailState.Success(specificDetailData))
-            emit(DetailState.Loading(loading = false))
+            emit(UIState.Success(specificDetailData))
+            emit(UIState.Loading(loading = false))
         } catch (ex: Exception) {
-            emit(DetailState.Error(ex.message.toString()))
-            emit(DetailState.Loading(loading = false))
+            emit(UIState.Error(ex.message.toString()))
+            emit(UIState.Loading(loading = false))
 
         }
     }.flowOn(Dispatchers.IO)
 
-    suspend fun getSearch(f: String): Flow<DetailState> = flow {
-        emit(DetailState.Loading(loading = true))
+    suspend fun getSearch(f: String): Flow<UIState<DetailResponse>> = flow {
+        emit(UIState.Loading(loading = true))
         try {
             val searchFoodData = apiService.getSearch(f)
-            emit(DetailState.Success(searchFoodData))
-            emit(DetailState.Loading(loading = false))
+            emit(UIState.Success(searchFoodData))
+            emit(UIState.Loading(loading = false))
         } catch (ex: Exception) {
+<<<<<<< HEAD
             emit(DetailState.Error(ex.message.toString()))
             emit(DetailState.Loading(loading = false))
 >>>>>>> 14d3ed5d30dc645b49d060de44ef39e20161d7a6
+=======
+            emit(UIState.Error(ex.message.toString()))
+            emit(UIState.Loading(loading = false))
+>>>>>>> 3beae78a4058398eb524a4508a6c2bfbe7efa6a3
         }
     }.flowOn(Dispatchers.IO)
 

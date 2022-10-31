@@ -5,9 +5,6 @@ package com.aralb.foodapplication.util
 import android.content.Context
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import com.aralb.foodapplication.model.detail_response.DetailResponse
-import com.aralb.foodapplication.model.food_category_response.FoodCategoryResponse
-import com.aralb.foodapplication.model.food_detail_response.FoodDetailResponse
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -17,6 +14,7 @@ object Constants {
     const val BASE_URL = "https://www.themealdb.com/api/json/v1/1/"
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 sealed class CategoryState<out T>(val data: T? = null, val msg: String? = null) {
     class Success<T>(data: T) : CategoryState<T>(data)
@@ -30,30 +28,21 @@ sealed class FoodCategoryState() {
     data class Success(val data: FoodCategoryResponse) : FoodCategoryState()
     data class Loading(val loading:Boolean = false): FoodCategoryState()
     data class Error(val msg: String? = null) : FoodCategoryState()
+=======
+
+
+
+fun glide(context: Context, url: String?, imageView: ImageView) {
+
+    if (!url.isNullOrEmpty()) {
+        Glide
+            .with(context)
+            .load(url)
+            .into(imageView)
+
+    }
+>>>>>>> 3beae78a4058398eb524a4508a6c2bfbe7efa6a3
 }
-
-sealed class FoodDetailState() {
-    data class Success(val data: FoodDetailResponse) : FoodDetailState()
-    data class Loading(val loading:Boolean = false): FoodDetailState()
-    data class Error(val msg: String? = null) : FoodDetailState()
-}
-
-sealed class DetailState() {
-    data class Success(val data: DetailResponse) : DetailState()
-    data class Loading(val loading:Boolean = false): DetailState()
-    data class Error(val msg: String? = null) : DetailState()
-}
-
-
-fun glide(context: Context, url: String?, imageView: ImageView){
-
-        if(!url.isNullOrEmpty()) {
-            Glide
-                .with(context)
-                .load(url)
-                .into(imageView)
-
-        } }
 
 @BindingAdapter("app:imageUrl")
 fun ImageView.setUrl(poster_path: String?) {

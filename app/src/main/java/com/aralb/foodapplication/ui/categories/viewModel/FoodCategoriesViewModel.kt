@@ -13,9 +13,14 @@ import com.aralb.foodapplication.util.CategoryState
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.aralb.foodapplication.UIState
+import com.aralb.foodapplication.model.food_category_response.FoodCategoryResponse
 import com.aralb.foodapplication.repository.Repository
+<<<<<<< HEAD
 import com.aralb.foodapplication.util.FoodCategoryState
 >>>>>>> 14d3ed5d30dc645b49d060de44ef39e20161d7a6
+=======
+>>>>>>> 3beae78a4058398eb524a4508a6c2bfbe7efa6a3
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -30,6 +35,7 @@ class FoodCategoriesViewModel @Inject constructor(
 ) : ViewModel() {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private val _categoryData: MutableStateFlow<UiState> =
         MutableStateFlow(UiState(isLoading = false))
 =======
@@ -37,6 +43,9 @@ class FoodCategoriesViewModel @Inject constructor(
 
     private val _categoryData: MutableStateFlow<FoodCategoryState?> = MutableStateFlow(null)
 >>>>>>> 14d3ed5d30dc645b49d060de44ef39e20161d7a6
+=======
+    private val _categoryData: MutableStateFlow<UIState<FoodCategoryResponse>> = MutableStateFlow(UIState.Loading())
+>>>>>>> 3beae78a4058398eb524a4508a6c2bfbe7efa6a3
     val categoryData = _categoryData.asStateFlow()
 
     fun getCategoryData() {

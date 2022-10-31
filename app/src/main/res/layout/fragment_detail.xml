@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="setData"
+            type="com.aralb.foodapplication.model.detail_response.DetailResponse" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detailRow"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/detailTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{setData.detailMealResponses.get(0).strMeal}"
+                    android:textColor="#FFA500"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/detailImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:imageUrl="@{setData.detailMealResponses.get(0).strMealThumb}"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/detailCategoryNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{setData.detailMealResponses.get(0).strCategory}"
+                    android:textColor="#FFA500"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ingredients"
+                    android:textColor="#FFA500"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Ingredients 1 :"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/Ingredient1"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{setData.detailMealResponses.get(0).strIngredient1}"
+                        android:textColor="#FFA500" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Measure 1 :"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/Measure1"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{setData.detailMealResponses.get(0).strMeasure1}"
+                        android:textColor="#FFA500" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Ingredients 2 :"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/Ingredient2"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{setData.detailMealResponses.get(0).strIngredient2}"
+                        android:textColor="#FFA500" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Measure 2 :"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/Measure2"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{setData.detailMealResponses.get(0).strMeasure2}"
+                        android:textColor="#FFA500" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Ingredients 3 :"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/Ingredient3"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{setData.detailMealResponses.get(0).strIngredient3}"
+                        android:textColor="#FFA500" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Measure 3 :"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/Measure3"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{setData.detailMealResponses.get(0).strMeasure3}"
+                        android:textColor="#FFA500" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Ingredients 4 :"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/Ingredient4"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{setData.detailMealResponses.get(0).strIngredient4}"
+                        android:textColor="#FFA500" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Measure 4 :"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/Measure4"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{setData.detailMealResponses.get(0).strMeasure4}"
+                        android:textColor="#FFA500" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Ingredients 5 :"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/Ingredient5"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{setData.detailMealResponses.get(0).strIngredient5}"
+                        android:textColor="#FFA500" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Measure 5 :"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/Measure5"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{setData.detailMealResponses.get(0).strMeasure5}"
+                        android:textColor="#FFA500" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Instrucions"
+                    android:textColor="#FFA500"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/detailInstruction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{setData.detailMealResponses.get(0).strInstructions}"
+                    android:textColor="#000000" />
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
