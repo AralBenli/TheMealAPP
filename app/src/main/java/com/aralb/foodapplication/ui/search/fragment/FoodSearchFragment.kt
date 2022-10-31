@@ -7,12 +7,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.aralb.foodapplication.R
+import com.aralb.foodapplication.UIState
 import com.aralb.foodapplication.databinding.FragmentFoodSearchBinding
 import com.aralb.foodapplication.model.detail_response.DetailMealResponse
 import com.aralb.foodapplication.ui.base.BaseFragment
 import com.aralb.foodapplication.ui.search.adapter.SearchAdapter
 import com.aralb.foodapplication.ui.search.viewModel.FoodSearchViewModel
-import com.aralb.foodapplication.util.DetailState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -51,17 +51,17 @@ class FoodSearchFragment :
                 launch {
                     searchViewModel.searchData.collectLatest { searchState ->
                         when (searchState) {
-                            is DetailState.Error -> print(searchState.msg)
-                            is DetailState.Loading ->
+                            is UIState.Error -> print(searchState.msg)
+                            is UIState.Loading ->
                                 if (searchState.loading) {
                                     showLoadingProgress()
                                 } else {
                                     dismissLoadingProgress()
                                 }
-                            is DetailState.Success -> searchState.data.let {
-                                searchAdapter.update(it.detailMealResponses)
-                            }
-                            null -> {}
+                            is UIState.Success ->
+                                if (searchState.data != null) {
+                                    searchAdapter.update(searchState.data.detailMealResponses)
+                                }
                         }
                     }
                 }

@@ -3,8 +3,9 @@ package com.aralb.foodapplication.ui.categories.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.aralb.foodapplication.UIState
+import com.aralb.foodapplication.model.food_category_response.FoodCategoryResponse
 import com.aralb.foodapplication.repository.Repository
-import com.aralb.foodapplication.util.FoodCategoryState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -17,9 +18,7 @@ class FoodCategoriesViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
-
-
-    private val _categoryData: MutableStateFlow<FoodCategoryState?> = MutableStateFlow(null)
+    private val _categoryData: MutableStateFlow<UIState<FoodCategoryResponse>> = MutableStateFlow(UIState.Loading())
     val categoryData = _categoryData.asStateFlow()
 
     fun getCategoryData() {

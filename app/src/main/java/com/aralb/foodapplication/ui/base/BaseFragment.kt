@@ -18,7 +18,7 @@ abstract class BaseFragment<VB : ViewBinding>
 
     lateinit var binding: VB
 
-    lateinit var progressDialog: Dialog
+    private lateinit var progressDialog: Dialog
 
     override fun onCreateView(
         inflater: LayoutInflater,

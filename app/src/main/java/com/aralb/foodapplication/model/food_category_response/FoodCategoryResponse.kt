@@ -1,7 +1,6 @@
 package com.aralb.foodapplication.model.food_category_response
 
 import android.os.Parcelable
-import com.aralb.foodapplication.model.food_category_response.Category
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
