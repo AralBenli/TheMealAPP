@@ -1,11 +1,8 @@
 package com.aralb.foodapplication.ui.categories.fragment
 
 import android.os.Bundle
-<<<<<<< HEAD
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-=======
->>>>>>> 14d3ed5d30dc645b49d060de44ef39e20161d7a6
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -32,19 +29,12 @@ class FoodCategoriesFragment :
 
     override fun observer() {
 
-<<<<<<< HEAD
-        binding.mainSearchView.setOnClickListener{
-=======
         binding.mainSearchView.setOnClickListener {
->>>>>>> 14d3ed5d30dc645b49d060de44ef39e20161d7a6
             findNavController().navigate(R.id.mainToSearch)
         }
 
         foodCategoryAdapter = FoodCategoryAdapter(
-<<<<<<< HEAD
-=======
             requireContext(),
->>>>>>> 14d3ed5d30dc645b49d060de44ef39e20161d7a6
             foodCategories = arrayListOf(),
             this
         )
@@ -56,17 +46,6 @@ class FoodCategoriesFragment :
         viewLifecycleOwner.lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
-<<<<<<< HEAD
-                    categoryViewModel.categoryData.collect { data ->
-                        if (data.isLoading == true) {
-                            showLoadingProgress()
-                        } else {
-                            dismissLoadingProgress()
-                        }
-                        data.foodCategoryResponse?.let {
-                            foodCategoryAdapter.update(it.categories)
-                        }
-=======
                     categoryViewModel.categoryData.collectLatest { mealState ->
 
                         when (mealState) {
@@ -84,8 +63,6 @@ class FoodCategoriesFragment :
                                 }
 
                         }
->>>>>>> 14d3ed5d30dc645b49d060de44ef39e20161d7a6
-
                     }
                 }
             }
@@ -97,16 +74,8 @@ class FoodCategoriesFragment :
         bundle.putString("category", currentItem.categoryName)
         findNavController().navigate(R.id.mainToCategory, bundle)
     }
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 }
-=======
-    }
->>>>>>> 14d3ed5d30dc645b49d060de44ef39e20161d7a6
-=======
-}
->>>>>>> 3beae78a4058398eb524a4508a6c2bfbe7efa6a3
+
+
 
 

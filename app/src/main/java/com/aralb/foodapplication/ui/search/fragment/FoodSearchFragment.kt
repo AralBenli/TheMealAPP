@@ -13,13 +13,6 @@ import com.aralb.foodapplication.model.detail_response.DetailMealResponse
 import com.aralb.foodapplication.ui.base.BaseFragment
 import com.aralb.foodapplication.ui.search.adapter.SearchAdapter
 import com.aralb.foodapplication.ui.search.viewModel.FoodSearchViewModel
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import com.aralb.foodapplication.util.DetailState
->>>>>>> 14d3ed5d30dc645b49d060de44ef39e20161d7a6
-=======
->>>>>>> 3beae78a4058398eb524a4508a6c2bfbe7efa6a3
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -53,16 +46,7 @@ class FoodSearchFragment :
                 return false
             }
         })
-<<<<<<< HEAD
 
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                launch {
-                    searchViewModel.searchData.collectLatest { data ->
-                        data.searchResponse?.let {
-                            searchAdapter.update(it.detailMealResponses)
-=======
         viewLifecycleOwner.lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
@@ -75,18 +59,11 @@ class FoodSearchFragment :
                                 } else {
                                     dismissLoadingProgress()
                                 }
-<<<<<<< HEAD
-                            is DetailState.Success -> searchState.data.let {
-                                searchAdapter.update(it.detailMealResponses)
-                            }
-                            null -> {}
->>>>>>> 14d3ed5d30dc645b49d060de44ef39e20161d7a6
-=======
+
                             is UIState.Success ->
                                 if (searchState.data != null) {
                                     searchAdapter.update(searchState.data.detailMealResponses)
                                 }
->>>>>>> 3beae78a4058398eb524a4508a6c2bfbe7efa6a3
                         }
                     }
                 }
@@ -94,19 +71,11 @@ class FoodSearchFragment :
         }
     }
 
-<<<<<<< HEAD
 
-    override fun onClickedSearchToDetail(currentItem: DetailMealResponse) {
-        val bundle = Bundle()
-        bundle.putString("idMeal", currentItem.idMeal)
-        findNavController().navigate(R.id.searchToDetail , bundle)
-=======
     override fun onClickedSearchToDetail(currentItem: DetailMealResponse) {
         val bundle = Bundle()
         bundle.putString("idMeal", currentItem.idMeal)
         findNavController().navigate(R.id.searchToDetail, bundle)
->>>>>>> 14d3ed5d30dc645b49d060de44ef39e20161d7a6
+
     }
-
-
 }
