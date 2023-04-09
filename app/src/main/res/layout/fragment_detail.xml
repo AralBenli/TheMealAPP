@@ -41,7 +41,7 @@
                     android:layout_height="300dp"
                     android:layout_gravity="center"
                     android:padding="10dp"
-                    android:src="@drawable/ic_launcher_background"
+                    tools:src="@drawable/example_img_png"
                     app:imageUrl="@{setData.detailMealResponses.get(0).strMealThumb}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
