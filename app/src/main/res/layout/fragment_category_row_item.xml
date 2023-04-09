@@ -1,45 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/category_row"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/category_row"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/fragmentCategoryImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragmentCategoryName"
-        app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/ic_launcher_background"
-        android:contentDescription="@string/image"
-        />
     <TextView
         android:id="@+id/fragmentCategoryName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="15dp"
         android:text="category_name"
         android:textColor="#FFA500"
-        android:textSize="15sp"
+        android:textSize="22sp"
         android:textStyle="bold"
-        android:gravity="center_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fragmentCategoryImageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/fragmentCategoryImageView"
+        style="@style/roundedCorners2x"
+        android:layout_width="320dp"
+        android:layout_height="200dp"
+        android:background="@color/light_gray"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentCategoryOverview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragmentCategoryName"
+        app:shapeAppearanceOverlay="@style/roundedCorners2x"
+        app:strokeColor="@color/light_gray"
+        tools:src="@drawable/example_img_png" />
+
+
+
     <TextView
         android:id="@+id/fragmentCategoryOverview"
-        android:text="@string/category_overview"
-        android:textColor="#000000"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="@string/category_overview"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragmentCategoryImageView"/>
-
-
+        app:layout_constraintTop_toBottomOf="@+id/fragmentCategoryImageView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,6 +28,6 @@ fun ImageView.setUrl(poster_path: String?) {
     if (poster_path != null)
         Glide.with(context)
             .load(poster_path)
-            .apply(RequestOptions().override(1000, 400))
+            .apply(RequestOptions().override(280, 250))
             .into(this)
 }

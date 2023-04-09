@@ -6,6 +6,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.aralb.foodapplication.MainActivity
 import com.aralb.foodapplication.R
 import com.aralb.foodapplication.UIState
 import com.aralb.foodapplication.databinding.FragmentCategoryDetailBinding
@@ -25,6 +26,10 @@ class FoodCategoryDetailFragment :
     private var categoryDetail: String? = null
 
     override fun observer() {
+        (requireActivity() as MainActivity).backNavigation(true)
+        (requireActivity() as MainActivity).search(false)
+
+
         categoryDetail = requireArguments().getString("category")
 
         categoryDetailAdapter = CategoryDetailAdapter(

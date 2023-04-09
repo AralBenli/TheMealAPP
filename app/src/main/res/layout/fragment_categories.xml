@@ -11,20 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/food_categories"
+        android:padding="15dp"
+        android:layout_marginStart="5dp"
         android:textColor="#FFA500"
-        android:textSize="17sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/mainSearchView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_search_"
-        app:layout_constraintTop_toTopOf="@id/staticWorldKitchenText"
-        app:layout_constraintBottom_toBottomOf="@id/staticWorldKitchenText"
-        app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainCategoryRecyclerView"

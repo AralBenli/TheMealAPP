@@ -4,6 +4,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.aralb.foodapplication.MainActivity
 import com.aralb.foodapplication.UIState
 import com.aralb.foodapplication.databinding.FragmentDetailBinding
 import com.aralb.foodapplication.ui.base.BaseFragment
@@ -19,6 +20,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
     private var detailMeal: String? = null
 
     override fun observer() {
+        (requireActivity() as MainActivity).backNavigation(true)
+        (requireActivity() as MainActivity).search(false)
+
 
         detailMeal = requireArguments().getString("idMeal")
         detailMeal?.let {

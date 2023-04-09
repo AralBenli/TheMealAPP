@@ -8,6 +8,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.aralb.foodapplication.MainActivity
 import com.aralb.foodapplication.R
 import com.aralb.foodapplication.UIState
 import com.aralb.foodapplication.databinding.FragmentCategoriesBinding
@@ -29,9 +30,9 @@ class FoodCategoriesFragment :
 
     override fun observer() {
 
-        binding.mainSearchView.setOnClickListener {
-            findNavController().navigate(R.id.mainToSearch)
-        }
+        (requireActivity() as MainActivity).backNavigation(false)
+        (requireActivity() as MainActivity).search(true)
+
 
         foodCategoryAdapter = FoodCategoryAdapter(
             requireContext(),

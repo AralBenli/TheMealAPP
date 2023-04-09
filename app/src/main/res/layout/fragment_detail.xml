@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -11,9 +12,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/detailRow"
-        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -22,7 +23,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="25dp">
 
                 <TextView
                     android:id="@+id/detailTitleTextView"
@@ -33,12 +35,19 @@
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/detailImageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_launcher_background"
                     app:imageUrl="@{setData.detailMealResponses.get(0).strMealThumb}"
-                    android:src="@drawable/ic_launcher_background" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/roundedCorners2x" />
 
                 <TextView
                     android:id="@+id/detailCategoryNameTextView"
@@ -52,6 +61,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:text="Ingredients"
                     android:textColor="#FFA500"
                     android:textSize="15sp"
@@ -221,7 +231,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Instrucions"
+                    android:padding="10dp"
+                    android:text="@string/instrucions"
                     android:textColor="#FFA500"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -231,7 +242,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{setData.detailMealResponses.get(0).strInstructions}"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." />
             </LinearLayout>
         </ScrollView>
 

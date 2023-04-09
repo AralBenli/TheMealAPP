@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/searchRow"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/searchDetailTextView"
+        android:padding="15dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="@string/meal_name"
         android:textColor="#FFA500"
-        android:textSize="15sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/searchImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_background"
+        android:layout_width="280dp"
+        android:layout_height="250dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchDetailTextView" />
-
+        app:layout_constraintTop_toBottomOf="@id/searchDetailTextView"
+        app:shapeAppearanceOverlay="@style/roundedCorners2x"
+        app:strokeColor="@color/light_gray"
+        app:strokeWidth="5dp"
+        tools:src="@drawable/gerald_g_fast_food_menu_samples_ff_menu_1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

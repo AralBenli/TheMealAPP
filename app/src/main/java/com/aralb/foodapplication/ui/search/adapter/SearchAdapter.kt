@@ -26,7 +26,7 @@ class SearchAdapter(
                 .apply(RequestOptions().override(1440, 1080))
                 .into(binding.searchImageView)
 
-            binding.searchDetailTextView.setOnClickListener {
+            binding.searchRow.setOnClickListener {
                 listener.onClickedSearchToDetail(searchBind)
             }
         }

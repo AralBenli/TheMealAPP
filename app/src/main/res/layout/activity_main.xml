@@ -6,6 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/custom_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="123dp"
+        android:paddingTop="34dp"
+        android:background="#2c3e4c"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/backIcon"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/icon_back"
+            app:layout_constraintBottom_toBottomOf="@id/listScopeImageView"
+            app:layout_constraintTop_toTopOf="@id/listScopeImageView"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/listScopeImageView"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_search_"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -13,9 +48,10 @@
         android:layout_height="0dp"
         app:defaultNavHost="true"
         app:navGraph="@navigation/my_nav"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/custom_action_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout="@layout/fragment_categories" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

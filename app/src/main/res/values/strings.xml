@@ -8,4 +8,5 @@
     <string name="image">image</string>
     <string name="food_categories">Food Categories</string>
     <string name="meal_name">meal_name</string>
+    <string name="instrucions">Instrucions</string>
 </resources>

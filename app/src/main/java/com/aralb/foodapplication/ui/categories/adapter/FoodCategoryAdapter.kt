@@ -31,7 +31,7 @@ class FoodCategoryAdapter(
 //                .load(categoryBind.url)
 //                .into(binding.fragmentCategoryImageView)
 
-            binding.fragmentCategoryName.setOnClickListener {
+            binding.fragmentCategoryImageView.setOnClickListener {
                 listener.onItemClicked(categoryBind)
             }
         }

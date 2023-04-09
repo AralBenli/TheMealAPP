@@ -9,6 +9,7 @@
     tools:context=".ui.search.fragment.FoodSearchFragment">
 
     <androidx.appcompat.widget.SearchView
+        android:padding="10dp"
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,11 +18,13 @@
         />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:padding="10dp"
         android:id="@+id/searchRecyclerView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
+        tools:listitem="@layout/search_row_item"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchView"

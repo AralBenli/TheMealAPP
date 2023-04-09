@@ -6,6 +6,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.aralb.foodapplication.MainActivity
 import com.aralb.foodapplication.R
 import com.aralb.foodapplication.UIState
 import com.aralb.foodapplication.databinding.FragmentFoodSearchBinding
@@ -27,6 +28,8 @@ class FoodSearchFragment :
     private lateinit var text: String
 
     override fun observer() {
+        (requireActivity() as MainActivity).backNavigation(true)
+        (requireActivity() as MainActivity).search(false)
 
         searchAdapter = SearchAdapter(requireContext(), arrayListOf(), this)
         binding.searchRecyclerView.adapter = searchAdapter

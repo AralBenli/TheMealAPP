@@ -23,9 +23,8 @@ class CategoryDetailAdapter(
             binding.categoryDetailTextView.text = detailBind.strMeal
             Glide.with(binding.root)
                 .load(detailBind.strMealThumb)
-                .apply(RequestOptions().override(1440, 1080))
                 .into(binding.categoryDetailImageView)
-            binding.categoryDetailTextView.setOnClickListener {
+            binding.categoryDetailRow.setOnClickListener {
                 listener.onClicked(detailBind)
             }
 
