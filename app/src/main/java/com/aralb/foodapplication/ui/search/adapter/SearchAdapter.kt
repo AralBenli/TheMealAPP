@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.aralb.foodapplication.databinding.SearchRowItemBinding
 import com.aralb.foodapplication.model.detail_response.DetailMealResponse
+import com.aralb.foodapplication.model.detail_response.DetailResponse
+import com.aralb.foodapplication.model.food_detail_response.FoodDetailResponse
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -51,9 +53,9 @@ class SearchAdapter(
     override fun getItemCount(): Int = searchList.size
 
 
-    fun update(search: List<DetailMealResponse>) {
+    fun update(search: List<DetailMealResponse>?) {
         searchList.clear()
-        searchList.addAll(search)
+        search?.let { searchList.addAll(it) }
         notifyDataSetChanged()
     }
 

@@ -11,10 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="15dp"
-        android:gravity="center_horizontal"
-        android:paddingBottom="15dp"
-        android:text="@string/meal_name"
+        tools:text="Beef Banh Mi Bowls with Sriracha Mayo, Carrot Pickled Cucumber"
         android:maxLines="1"
+        android:gravity="center"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
         android:textColor="#FFA500"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -25,26 +26,26 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/imageRoot"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="320dp"
         android:layout_height="210dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/img_background"
         app:layout_constraintTop_toBottomOf="@id/categoryDetailTextView">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/categoryDetailImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            app:shapeAppearanceOverlay="@style/roundedCorners2x"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:padding="5dp"
-            tools:src="@drawable/example_img_png"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/roundedCorners2x"
+            tools:src="@drawable/example_img_png" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

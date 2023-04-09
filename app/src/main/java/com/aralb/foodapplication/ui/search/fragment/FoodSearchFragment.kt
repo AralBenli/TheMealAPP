@@ -11,6 +11,7 @@ import com.aralb.foodapplication.R
 import com.aralb.foodapplication.UIState
 import com.aralb.foodapplication.databinding.FragmentFoodSearchBinding
 import com.aralb.foodapplication.model.detail_response.DetailMealResponse
+import com.aralb.foodapplication.model.food_detail_response.FoodDetailResponse
 import com.aralb.foodapplication.ui.base.BaseFragment
 import com.aralb.foodapplication.ui.search.adapter.SearchAdapter
 import com.aralb.foodapplication.ui.search.viewModel.FoodSearchViewModel
@@ -43,8 +44,8 @@ class FoodSearchFragment :
             override fun onQueryTextChange(query: String?): Boolean {
                 if (!query.isNullOrEmpty()) {
                     text = query
-                    searchViewModel.getSearch(f = text)
-                    return true
+                    searchViewModel.getSearch(text)
+                    return false
                 }
                 return false
             }
@@ -56,17 +57,13 @@ class FoodSearchFragment :
                     searchViewModel.searchData.collectLatest { searchState ->
                         when (searchState) {
                             is UIState.Error -> print(searchState.msg)
-                            is UIState.Loading ->
-                                if (searchState.loading) {
-                                    showLoadingProgress()
-                                } else {
-                                    dismissLoadingProgress()
-                                }
-
-                            is UIState.Success ->
-                                if (searchState.data != null) {
+                            is UIState.Loading -> {}
+                            is UIState.Success -> {
+                                val data = searchState.data
+                                if (data != null) {
                                     searchAdapter.update(searchState.data.detailMealResponses)
                                 }
+                            }
                         }
                     }
                 }
@@ -79,6 +76,5 @@ class FoodSearchFragment :
         val bundle = Bundle()
         bundle.putString("idMeal", currentItem.idMeal)
         findNavController().navigate(R.id.searchToDetail, bundle)
-
     }
 }

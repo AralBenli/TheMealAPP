@@ -17,13 +17,12 @@ interface FoodService {
         @Query("c") category: String
     ): FoodDetailResponse
 
-
     @GET("lookup.php")
     suspend fun getFoodDetails(@Query("i") id: String): DetailResponse
 
 
     @GET("search.php")
-    suspend fun getSearch(@Query("f") f:String) :DetailResponse
+    suspend fun getSearch(@Query("s") s: String): DetailResponse
 
 }
 

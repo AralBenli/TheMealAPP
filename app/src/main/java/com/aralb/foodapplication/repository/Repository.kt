@@ -51,10 +51,10 @@ class Repository @Inject constructor(private val apiService: FoodService) {
         }
     }.flowOn(Dispatchers.IO)
 
-    suspend fun getSearch(f: String): Flow<UIState<DetailResponse>> = flow {
+    suspend fun getSearch(s: String): Flow<UIState<DetailResponse>> = flow {
         emit(UIState.Loading(loading = true))
         try {
-            val searchFoodData = apiService.getSearch(f)
+            val searchFoodData = apiService.getSearch(s)
             emit(UIState.Success(searchFoodData))
             emit(UIState.Loading(loading = false))
         } catch (ex: Exception) {

@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aralb.foodapplication.UIState
 import com.aralb.foodapplication.model.detail_response.DetailResponse
+import com.aralb.foodapplication.model.food_detail_response.FoodDetailResponse
 import com.aralb.foodapplication.repository.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
